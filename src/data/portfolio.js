@@ -46,6 +46,14 @@ export const mediaLibrary = {
   ],
   academic: [
     { src: '/assets/academic/bjut-graduation.webp', alt: '北京工业大学学位授予仪式', caption: '社会学本科训练的阶段性完成。', usedIn: 'education-bjut' },
+    {
+      src: '/assets/academic/hku-main-building.webp',
+      alt: '香港大学本部大楼',
+      caption: '香港大学本部大楼：从社会学训练延伸到人口与政策分析。',
+      usedIn: 'education-hku',
+      credit: 'Adon3465 / Wikimedia Commons / CC BY-SA 3.0',
+      creditUrl: 'https://commons.wikimedia.org/wiki/File:University_of_Hong_Kong_Main_Building.jpg',
+    },
   ],
   life: [
     { src: '/assets/life/football-action-new.webp', alt: '夜间足球射门', caption: '足球：协作、空间判断与临场行动。', usedIn: 'personal-football' },
@@ -53,6 +61,10 @@ export const mediaLibrary = {
     { src: '/assets/life/photography-new.webp', alt: '街头摄影作品', caption: '摄影：练习看见场景中的秩序与细节。', usedIn: 'personal-photography' },
     { src: '/assets/life/pet-new.webp', alt: '与宠物猫的合影', caption: '宠物：对具体生命保持敏感。', usedIn: 'personal-pet' },
     { src: '/assets/life/football-portrait-new.webp', alt: '足球场边的钟皓', caption: '场上 27 号：观察、判断、行动。', usedIn: 'profile-portrait' },
+    { src: '/assets/life/football-team-new.webp', alt: '足球队合影', caption: '足球队：一起训练，也一起承担比赛结果。', usedIn: 'life-gallery-football' },
+    { src: '/assets/life/basketball-new.webp', alt: '篮球投篮瞬间', caption: '运动：重复练习之后的动作判断。', usedIn: 'life-gallery-basketball' },
+    { src: '/assets/life/photo-coast.webp', alt: '海岸摄影作品', caption: '海岸：在风景中寻找尺度与节奏。', usedIn: 'life-gallery-coast' },
+    { src: '/assets/life/photo-temple.webp', alt: '建筑摄影作品', caption: '建筑：光线、结构与观看路径。', usedIn: 'life-gallery-temple' },
   ],
 }
 
@@ -69,6 +81,9 @@ export const education = [
     period: '2025.09 — 2026.11',
     keywords: ['人口分析', '政策评估', '社会统计', '计算社会科学', 'R 语言', 'DID / RDD / IV'],
     description: '研究生阶段，我进一步把社会问题转化为可计算、可比较、可解释的问题：通过人口方法、政策评估、社会统计和 R 语言分析，将抽象的社会过程落到数据结构、模型结果和可视化表达上。',
+    image: '/assets/academic/hku-main-building.webp',
+    credit: 'Adon3465 / Wikimedia Commons / CC BY-SA 3.0',
+    creditUrl: 'https://commons.wikimedia.org/wiki/File:University_of_Hong_Kong_Main_Building.jpg',
   },
   {
     school: '北京工业大学',
@@ -87,7 +102,11 @@ export const archiveItems = [
     type: '田野档案',
     title: '100+ 小时田野调查与市场观察',
     description: '进入社区和家庭现场，通过访谈、观察与记录理解行为背后的关系、空间与制度。',
-    assets: ['/assets/fieldwork/fieldwork-03.webp'],
+    assets: [
+      '/assets/fieldwork/fieldwork-01.jpg',
+      '/assets/fieldwork/fieldwork-02.jpg',
+      '/assets/fieldwork/fieldwork-03.webp',
+    ],
     tags: ['社会学', '入户访谈', '用户观察'],
     tone: 'blue',
     size: 'large',
@@ -334,6 +353,8 @@ export const interests = [
   { id: 'pet', title: '宠物', copy: '对具体生命保持敏感', image: '/assets/life/pet-new.webp', color: 'pink' },
   { id: 'ai', title: 'AI 产品应用', copy: '效率工具、原型构建、个人生产力', color: 'purple', visual: 'ai' },
 ]
+
+export const lifeGallery = mediaLibrary.life.filter((item) => item.usedIn.startsWith('life-gallery-'))
 
 export const strengths = [
   { number: '01', title: '进入真实场景', description: '用访谈、观察与数据共同理解用户，不把指标从场景中剥离。', keywords: ['田野', '访谈', '用户路径'] },

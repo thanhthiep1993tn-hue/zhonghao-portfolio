@@ -1,4 +1,4 @@
-import { getMediaByUsage, interests, profile } from '../data/portfolio'
+import { getMediaByUsage, interests, lifeGallery, profile } from '../data/portfolio'
 import BlurText from './effects/BlurText'
 import Reveal from './effects/Reveal'
 import ENFPIllustration from './mockups/ENFPIllustration'
@@ -27,6 +27,19 @@ function PersonalProfile() {
             <Reveal as="article" className={`interest-card ${interest.color}`} delay={(index % 3) * 0.05} key={interest.id}>
               {interest.image ? <img src={interest.image} alt={interest.title} /> : <div className="ai-interest-visual"><span>AI</span><i>想法</i><b>→</b><strong>原型</strong></div>}
               <div><span>0{index + 1}</span><h3>{interest.title}</h3><p>{interest.copy}</p></div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="life-gallery-heading">
+          <span>更多生活切片</span>
+          <p>比赛、训练、旅行与拍摄，构成工作之外持续发生的观察和行动。</p>
+        </Reveal>
+        <div className="life-gallery">
+          {lifeGallery.map((photo, index) => (
+            <Reveal as="figure" className={`life-gallery-item life-gallery-item-${index + 1}`} delay={index * 0.05} key={photo.src}>
+              <img src={photo.src} alt={photo.alt} />
+              <figcaption>{photo.caption}</figcaption>
             </Reveal>
           ))}
         </div>

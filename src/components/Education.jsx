@@ -23,7 +23,12 @@ function Education() {
                 <span>0{index + 1}</span>
                 <time>{item.period}</time>
               </div>
-              {item.image ? <img src={item.image} alt="北京工业大学学位授予仪式" /> : <div className="education-monogram">HKU</div>}
+              {item.image ? (
+                <figure className="education-image">
+                  <img src={item.image} alt={item.school === '香港大学' ? '香港大学本部大楼' : '北京工业大学学位授予仪式'} />
+                  {item.credit ? <a href={item.creditUrl} target="_blank" rel="noreferrer">{item.credit} ↗</a> : null}
+                </figure>
+              ) : <div className="education-monogram">HKU</div>}
               <div className="education-copy">
                 <small>{item.schoolEn}</small>
                 <h3>{item.school}</h3>
