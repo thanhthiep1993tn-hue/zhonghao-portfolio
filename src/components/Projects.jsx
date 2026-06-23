@@ -8,7 +8,7 @@ function Projects() {
   return (
     <section className="section section-anchor projects-section" id="projects">
       <div className="shell">
-        <div className="section-number">03 / 产品与运营项目</div>
+        <div className="section-number">05 / 产品与运营项目</div>
         <div className="section-heading split-heading">
           <h2 className="section-title">
             把

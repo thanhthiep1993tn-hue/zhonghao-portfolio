@@ -11,7 +11,7 @@ function WorkExperience() {
   return (
     <section className="section section-anchor experience-section" id="experience">
       <div className="shell">
-        <div className="section-number">04 / 工作经历</div>
+        <div className="section-number">06 / 工作经历</div>
         <div className="section-heading split-heading">
           <BlurText text="经历要看见问题、行动和产出。" as="h2" className="section-title" />
           <Reveal delay={0.1}>

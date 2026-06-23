@@ -6,6 +6,7 @@ import GradientText from './effects/GradientText'
 import MagneticButton from './effects/MagneticButton'
 import PhotoParallax from './effects/PhotoParallax'
 import Reveal from './effects/Reveal'
+import DotGrid from './effects/DotGrid'
 
 const colors = ['#2563EB', '#06B6D4', '#22C55E', '#F97316', '#2563EB']
 
@@ -16,6 +17,7 @@ function Hero() {
     <section className="hero section-anchor" id="home">
       <div className="hero-shape hero-shape-blue" />
       <div className="hero-shape hero-shape-green" />
+      <div className="hero-dot-grid"><DotGrid dotSize={6} gap={22} baseColor="#B8C7FF" activeColor="#2563EB" proximity={120} /></div>
       <div className="shell hero-grid">
         <div className="hero-copy">
           <Reveal>
@@ -33,16 +35,14 @@ function Hero() {
               className="hero-title-line"
             />
             <span className="hero-title-line hero-title-line-second">
-              {hero.titleSecond}{' '}
-              <GradientText colors={colors} animationSpeed={6}>可执行的</GradientText>
-              <GradientText className="hero-gradient-tail" colors={colors} animationSpeed={6}>业务系统。</GradientText>
+              <GradientText colors={colors} animationSpeed={6}>{hero.highlight}</GradientText>
             </span>
           </h1>
           <Reveal delay={0.14}><p className="hero-description">{hero.description}</p></Reveal>
           <Reveal delay={0.22}><p className="hero-disciplines">{profile.disciplines}</p></Reveal>
           <Reveal delay={0.28} className="hero-actions">
-            <MagneticButton className="button button-primary" onClick={() => scrollTo('evidence')}>
-              查看证据墙 <span>↘</span>
+            <MagneticButton className="button button-primary" onClick={() => scrollTo('archive')}>
+              查看研究档案 <span>↘</span>
             </MagneticButton>
             <MagneticButton className="button button-secondary" onClick={() => scrollTo('projects')}>
               查看项目 <span>→</span>
@@ -63,7 +63,7 @@ function Hero() {
           />
           <FloatingTags tags={profile.floatingTags} />
           <div className="hero-photo-note">
-            <span>ZHONG HAO</span>
+            <span>钟皓 · 个人作品集</span>
             <strong>观察现场，也构建系统。</strong>
           </div>
         </Reveal>

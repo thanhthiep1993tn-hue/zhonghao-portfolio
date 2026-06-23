@@ -16,7 +16,7 @@ function AcademicWork() {
   return (
     <section className="section section-anchor academic-section" id="academic">
       <div className="shell">
-        <div className="section-number">02 / 学业与研究</div>
+        <div className="section-number">03 / 学业与研究</div>
         <div className="academic-heading">
           <BlurText
             text="学业不是背景，而是我理解用户和社会场景的方法。"

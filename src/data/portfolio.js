@@ -1,6 +1,5 @@
 export const profile = {
   name: '钟皓',
-  englishName: 'ZHONG HAO',
   role: '产品运营 / 采销运营 / 用户运营 / 渠道增长 / 数据驱动型业务执行者',
   disciplines: '产品运营 · 采销运营 · 用户运营 · 渠道增长 · 用户研究 · Vibe Coding',
   email: 'zhonghao23@connect.hku.hk',
@@ -8,11 +7,11 @@ export const profile = {
   phoneHK: '+852 4637 7351',
   locations: '北京优先｜香港 / 深圳可沟通',
   profilePhoto: {
-    normal: '/assets/profile/life-photo.jpg',
+    normal: '/assets/profile/hero-portrait.webp',
     cutout: '/assets/profile/life-photo-cutout.png',
     useCutout: false,
   },
-  floatingTags: ['足球', '田野调查', '摄影', '宠物', 'AI 产品应用'],
+  floatingTags: ['足球', '徒步', '摄影', '宠物', 'AI 产品应用'],
   statement: [
     '我是一个对真实场景非常敏感的人。社会学训练让我习惯先观察人、关系和制度，再谈策略；运营实习让我意识到，好的执行不是把事情做完，而是让复杂流程变得可追踪、可复盘、可协作。',
     '我喜欢把模糊的问题拆成结构：用户从哪里来、为什么流失、渠道为什么有效或无效、供应商为什么产生结算争议、一个线下活动如何沉淀为可复用的数据系统。相比一次性任务，我更愿意把任务整理成表格、SOP、看板、原型或系统。',
@@ -21,11 +20,10 @@ export const profile = {
 }
 
 export const hero = {
-  titlePrefix: '把真实世界的问题，',
-  titleSecond: '变成',
-  highlight: '可执行的业务系统。',
+  titlePrefix: '把真实场景里的问题，',
+  highlight: '做成可以运行的业务系统。',
   description:
-    '我从社会学、田野调查和用户研究出发，进入产品运营、采销运营和渠道增长现场。这里展示的不只是经历，而是我如何把用户、渠道、供应商、数据和组织流程整理成可以验证、可以复盘、可以继续优化的系统。',
+    '我从社会学、田野调查和用户研究出发，进入产品运营、采销运营和渠道增长现场。相比只描述经历，我更希望展示：一个模糊的用户、渠道或供应商问题，如何被拆成指标、流程、看板、代码和下一步动作。',
 }
 
 export const heroStats = [
@@ -36,13 +34,60 @@ export const heroStats = [
   { value: 6, suffix: ' 个', label: '业务与研究项目沉淀', color: 'pink' },
 ]
 
-export const evidenceItems = [
+export const mediaLibrary = {
+  profile: {
+    heroPhoto: '/assets/profile/hero-portrait.webp',
+  },
+  fieldwork: [
+    { src: '/assets/fieldwork/fieldwork-01.jpg', alt: '入户访谈现场', caption: '进入家庭场景，记录回答之外的空间与互动。', usedIn: 'academic-fieldwork-01' },
+    { src: '/assets/fieldwork/fieldwork-02.jpg', alt: '乡村道路上的场景观察', caption: '把路线、空间和行动放回具体环境中理解。', usedIn: 'academic-fieldwork-02' },
+    { src: '/assets/fieldwork/fieldwork-03.webp', alt: '田野调查团队合影', caption: '田野工作结束后，与社区参与者和团队留下记录。', usedIn: 'archive-fieldwork' },
+    { src: '/assets/fieldwork/urban-observation.webp', alt: '广州地铁城市观察', caption: '城市基础设施也是理解流动与秩序的入口。', usedIn: 'academic-fieldwork-03' },
+  ],
+  academic: [
+    { src: '/assets/academic/bjut-graduation.webp', alt: '北京工业大学学位授予仪式', caption: '社会学本科训练的阶段性完成。', usedIn: 'education-bjut' },
+  ],
+  life: [
+    { src: '/assets/life/football-action-new.webp', alt: '夜间足球射门', caption: '足球：协作、空间判断与临场行动。', usedIn: 'personal-football' },
+    { src: '/assets/life/hiking-new.webp', alt: '山顶日出', caption: '徒步：耐心、路线与长期主义。', usedIn: 'personal-hiking' },
+    { src: '/assets/life/photography-new.webp', alt: '街头摄影作品', caption: '摄影：练习看见场景中的秩序与细节。', usedIn: 'personal-photography' },
+    { src: '/assets/life/pet-new.webp', alt: '与宠物猫的合影', caption: '宠物：对具体生命保持敏感。', usedIn: 'personal-pet' },
+    { src: '/assets/life/football-portrait-new.webp', alt: '足球场边的钟皓', caption: '场上 27 号：观察、判断、行动。', usedIn: 'profile-portrait' },
+  ],
+}
+
+export function getMediaByUsage(category, usage) {
+  const collection = mediaLibrary[category]
+  return Array.isArray(collection) ? collection.find((item) => item.usedIn === usage) : null
+}
+
+export const education = [
+  {
+    school: '香港大学',
+    schoolEn: 'The University of Hong Kong',
+    degree: '社会科学硕士｜人口与政策分析',
+    period: '2025.09 — 2026.11',
+    keywords: ['人口分析', '政策评估', '社会统计', '计算社会科学', 'R 语言', 'DID / RDD / IV'],
+    description: '研究生阶段，我进一步把社会问题转化为可计算、可比较、可解释的问题：通过人口方法、政策评估、社会统计和 R 语言分析，将抽象的社会过程落到数据结构、模型结果和可视化表达上。',
+  },
+  {
+    school: '北京工业大学',
+    schoolEn: 'Beijing University of Technology',
+    degree: '法学学士｜社会学',
+    period: '2021.08 — 2025.07',
+    keywords: ['社会研究方法', '田野调查', '质性访谈', '问卷设计', '统计分析', '城市社会学'],
+    description: '本科阶段的社会学训练让我习惯从具体场景出发理解人：人如何在空间中行动，如何在关系中选择，如何受到制度、文化和组织结构的影响。这也成为我后来理解用户、渠道和业务现场的基础。',
+    image: '/assets/academic/bjut-graduation.webp',
+  },
+]
+
+export const archiveItems = [
   {
     id: 'fieldwork',
-    type: '田野',
+    type: '田野档案',
     title: '100+ 小时田野调查与市场观察',
     description: '进入社区和家庭现场，通过访谈、观察与记录理解行为背后的关系、空间与制度。',
-    assets: ['/assets/fieldwork/fieldwork-01.jpg', '/assets/fieldwork/fieldwork-02.jpg'],
+    assets: ['/assets/fieldwork/fieldwork-03.webp'],
     tags: ['社会学', '入户访谈', '用户观察'],
     tone: 'blue',
     size: 'large',
@@ -70,7 +115,7 @@ export const evidenceItems = [
   {
     id: 'code',
     type: '代码',
-    title: '研究代码档案',
+    title: 'R 语言与数据可视化',
     description: '人口方法、政策评估和统计分析课程中的 R 代码，可下载查看分析结构。',
     file: '/assets/academic/graduate-code.zip',
     tags: ['R', '可视化', '数据清洗'],
@@ -89,7 +134,7 @@ export const evidenceItems = [
   },
   {
     id: 'work',
-    type: '工作产出',
+    type: '实践材料',
     title: '金融产品内容与线下物料',
     description: '参与金融产品传播、线下广告物料与竞品信息整理，把复杂规则转译成可理解的信息。',
     assets: ['/assets/work/webull-cover.jpg', '/assets/work/webull-fee-table.jpg'],
@@ -98,6 +143,22 @@ export const evidenceItems = [
     size: 'wide',
   },
 ]
+
+export const rVisualization = {
+  title: 'R 语言与数据可视化：把模型结果讲清楚。',
+  description: '我使用 R 进行数据清洗、统计建模和可视化表达。R 对我来说不是简历里的工具名，而是一种把社会现象转化为可解释图形的工作方式。',
+  tools: ['R', 'ggplot2', 'dplyr', 'gtsummary', 'broom', 'lme4', 'poLCA', 'gganimate', '回归分析', '人口方法', '政策评估'],
+  codeExample: `library(tidyverse)
+library(ggplot2)
+
+df %>%
+  group_by(group, year) %>%
+  summarise(rate = mean(value, na.rm = TRUE)) %>%
+  ggplot(aes(year, rate, color = group)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2) +
+  theme_minimal()`,
+}
 
 export const academicWorks = [
   {
@@ -157,7 +218,7 @@ export const projects = [
     title: '线下活动用户运营系统',
     subtitle: '从人工登记到可追踪、可复盘的数据流程',
     summary:
-      '用于讲座、活动和路演场景的轻量级签到系统，把报名名单、现场签到、二维码核验、临时访客、重复签到控制和数据导出整合到一个流程。',
+      '项目源自一个具体运营场景：报名名单、现场签到、临时到访、重复签到、Webull 注册开户状态和复盘数据分散在不同表格与人工流程里。我用 Flask + SQLite 搭建轻量系统，把名单导入、身份匹配、二维码核验和数据导出连接起来。',
     tags: ['Flask', 'SQLite', 'Excel', '二维码', '用户运营'],
     featured: true,
     mockup: 'checkin',
@@ -169,7 +230,7 @@ export const projects = [
     title: '零售品类增长决策看板',
     subtitle: 'Retail Category Growth Copilot',
     summary:
-      '模拟 marketplace 采销与品类运营工作流，用合成数据整合品类表现、商家健康、SKU 潜力、活动利润、库存风险和周度经营复盘。',
+      '我把采销工作理解为商品、商家、库存、价格、毛利和活动资源之间的协调。这个看板模拟周度经营中真正会问的问题：哪些 SKU 值得加资源，哪些商家有风险，活动 ROI 是否覆盖成本，库存周转是否健康。',
     tags: ['采销运营', 'GMV', 'SKU', 'ROI', '库存与毛利'],
     featured: true,
     mockup: 'dashboard',
@@ -182,7 +243,7 @@ export const projects = [
     title: '渠道与采销结算管理看板',
     subtitle: '让费用、责任与付款条件进入同一张表',
     summary:
-      '围绕供应商开户数据、固定费用、CPA、礼券成本、运输费和结算状态，建立总览与明细管理表。',
+      '这个项目关注渠道运营里最容易变复杂的部分：不同供应商、活动、费用口径和转化状态混在一起后，如何判断该不该结算、结算多少、争议点在哪里。',
     tags: ['供应商管理', 'CPA', '费用核算', '结算风险'],
     mockup: 'settlement',
     points: ['供应商明细', '异常费用标记', '开户与入金状态', '结算争议点', '付款判断'],
@@ -267,10 +328,10 @@ export const workExperience = [
 ]
 
 export const interests = [
-  { id: 'football', title: '足球', copy: '团队协作、空间判断、临场反应', image: '/assets/life/football-action.jpg', color: 'blue' },
-  { id: 'hiking', title: '徒步与田野', copy: '耐心、路线规划、长期主义', image: '/assets/fieldwork/fieldwork-02.jpg', color: 'green' },
-  { id: 'photo', title: '摄影', copy: '观察力、构图、对场景的敏感', image: '/assets/profile/life-photo.jpg', color: 'orange' },
-  { id: 'pet', title: '宠物', copy: '陪伴、责任感、对具体生命的感知', image: '/assets/life/pet.jpg', color: 'pink' },
+  { id: 'football', title: '足球', copy: '协作、空间判断与临场行动', image: '/assets/life/football-action-new.webp', color: 'blue' },
+  { id: 'hiking', title: '徒步', copy: '耐心、路线与长期主义', image: '/assets/life/hiking-new.webp', color: 'green' },
+  { id: 'photo', title: '摄影', copy: '观察具体场景的方式', image: '/assets/life/photography-new.webp', color: 'orange' },
+  { id: 'pet', title: '宠物', copy: '对具体生命保持敏感', image: '/assets/life/pet-new.webp', color: 'pink' },
   { id: 'ai', title: 'AI 产品应用', copy: '效率工具、原型构建、个人生产力', color: 'purple', visual: 'ai' },
 ]
 

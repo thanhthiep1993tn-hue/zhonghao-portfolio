@@ -2,8 +2,10 @@ import { MotionConfig } from 'motion/react'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import EvidenceWall from './components/EvidenceWall'
+import Education from './components/Education'
+import ArchiveWall from './components/ArchiveWall'
 import AcademicWork from './components/AcademicWork'
+import RVisualization from './components/RVisualization'
 import Projects from './components/Projects'
 import WorkExperience from './components/WorkExperience'
 import PersonalProfile from './components/PersonalProfile'
@@ -39,8 +41,10 @@ function App() {
           </div>
         ) : null}
         <Hero />
-        <EvidenceWall />
+        <Education />
+        <ArchiveWall />
         <AcademicWork />
+        <RVisualization />
         <Projects />
         <WorkExperience />
         <PersonalProfile />

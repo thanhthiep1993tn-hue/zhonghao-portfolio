@@ -3,7 +3,8 @@ import { profile } from '../data/portfolio'
 
 const navItems = [
   ['首页', 'home'],
-  ['证据', 'evidence'],
+  ['教育', 'education'],
+  ['档案', 'archive'],
   ['研究', 'academic'],
   ['项目', 'projects'],
   ['经历', 'experience'],
@@ -16,24 +17,20 @@ function Navbar() {
   const [active, setActive] = useState('home')
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16)
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-        if (visible) setActive(visible.target.id)
-      },
-      { rootMargin: '-18% 0px -68% 0px', threshold: [0.04, 0.2] },
-    )
+    const spyItems = [...navItems, ['研究', 'r-visualization']]
+    const onScroll = () => {
+      setScrolled(window.scrollY > 16)
+      const marker = window.scrollY + window.innerHeight * 0.34
+      let current = 'home'
+      spyItems.forEach(([, id]) => {
+        const section = document.getElementById(id)
+        if (section && section.offsetTop <= marker) current = id === 'r-visualization' ? 'academic' : id
+      })
+      setActive(current)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    navItems.forEach(([, id]) => {
-      const section = document.getElementById(id)
-      if (section) observer.observe(section)
-    })
     return () => {
-      observer.disconnect()
       window.removeEventListener('scroll', onScroll)
     }
   }, [])
@@ -43,7 +40,7 @@ function Navbar() {
   return (
     <header className={`site-nav ${scrolled ? 'is-scrolled' : ''}`}>
       <button className="nav-brand" onClick={() => scrollTo('home')} aria-label="返回首页">
-        <span>ZH</span>
+        <span>皓</span>
         <strong>{profile.name}</strong>
       </button>
       <nav aria-label="主要导航">

@@ -4,6 +4,7 @@ import BlurText from './effects/BlurText'
 import GradientText from './effects/GradientText'
 import MagneticButton from './effects/MagneticButton'
 import Reveal from './effects/Reveal'
+import DotGrid from './effects/DotGrid'
 
 function Contact() {
   const [copied, setCopied] = useState('')
@@ -26,6 +27,7 @@ function Contact() {
   return (
     <section className="contact-section section-anchor" id="contact">
       <div className="contact-grid-pattern" />
+      <div className="contact-dot-grid"><DotGrid dotSize={7} gap={24} baseColor="#C7F0DD" activeColor="#22C55E" proximity={130} /></div>
       <div className="shell contact-inner">
         <p className="contact-eyebrow">{contact.eyebrow}</p>
         <h2>
