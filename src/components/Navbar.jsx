@@ -16,15 +16,24 @@ function Navbar() {
   const [active, setActive] = useState('home')
 
   useEffect(() => {
-    const spyItems = [...navItems, ['档案', 'r-visualization']]
+    const spyItems = [
+      ...navItems.map(([, id]) => ({ id, activeId: id })),
+      { id: 'r-visualization', activeId: 'archive' },
+      { id: 'methods', activeId: 'profile' },
+    ]
     const onScroll = () => {
       setScrolled(window.scrollY > 16)
       const marker = window.scrollY + window.innerHeight * 0.34
-      let current = 'home'
-      spyItems.forEach(([, id]) => {
-        const section = document.getElementById(id)
-        if (section && section.offsetTop <= marker) current = id === 'r-visualization' ? 'archive' : id
+      const sections = spyItems
+        .map((item) => ({ ...item, section: document.getElementById(item.id) }))
+        .filter((item) => item.section)
+        .sort((a, b) => a.section.offsetTop - b.section.offsetTop)
+      let current = sections[0]?.activeId || 'home'
+      sections.forEach((item) => {
+        if (item.section.offsetTop <= marker) current = item.activeId
       })
+      const nearPageEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80
+      if (nearPageEnd) current = 'contact'
       setActive(current)
     }
     onScroll()

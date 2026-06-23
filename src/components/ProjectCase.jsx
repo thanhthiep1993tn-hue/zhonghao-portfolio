@@ -43,6 +43,7 @@ function ProjectCase({ project, index, focused, onFocus }) {
         </div>
         <h3>{project.title}</h3>
         <p className="case-subtitle">{project.subtitle}</p>
+        {project.status ? <span className="project-status"><i />{project.status}</span> : null}
         <p className="case-summary">{project.summary}</p>
 
         {checkin ? (
@@ -81,6 +82,12 @@ function ProjectCase({ project, index, focused, onFocus }) {
           <>
             <ul className="project-points">{project.points.map((point) => <li key={point}>{point}</li>)}</ul>
             <div className="case-value"><span>业务价值</span><p>{project.value}</p></div>
+            {project.statusDescription ? <p className="project-testing-note">{project.statusDescription}</p> : null}
+            {project.github ? (
+              <a className="case-link project-github-link" href={project.github} target="_blank" rel="noreferrer">
+                查看 GitHub 项目 <span>↗</span>
+              </a>
+            ) : null}
           </>
         ) : null}
       </div>

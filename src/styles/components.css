@@ -237,6 +237,9 @@
 .mockup-topbar > span { font-size:13px; font-weight:750; }.mockup-topbar small,.mockup-heading small { color:var(--faint); font-size:9px; }
 .dashboard-kpis { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--line); }
 .dashboard-kpis > div { min-height:105px; padding:17px; display:grid; align-content:space-between; border-right:1px solid var(--line); }
+.dashboard-kpis > div { position:relative; overflow:hidden; }
+.dashboard-kpis > div > i { position:absolute; left:0; right:0; bottom:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--cyan),var(--green)); transform-origin:left; animation:kpiSignal 2.6s var(--kpi-delay) ease-in-out infinite; }
+@keyframes kpiSignal { 0%,100%{transform:scaleX(.2);opacity:.25}50%{transform:scaleX(1);opacity:.85} }
 .dashboard-kpis > div:nth-child(1){background:var(--blue-soft)}.dashboard-kpis > div:nth-child(2){background:var(--green-soft)}.dashboard-kpis > div:nth-child(3){background:var(--orange-soft)}.dashboard-kpis > div:nth-child(4){background:var(--pink-soft);border:0}
 .dashboard-kpis span{color:var(--muted);font-size:10px}.dashboard-kpis strong{font-size:clamp(18px,1.6vw,28px)}.dashboard-kpis small{color:var(--green);font-size:9px}
 .dashboard-main { min-height:360px; display:grid; grid-template-columns:1.2fr .8fr; }
@@ -247,6 +250,25 @@
 @keyframes floatDot{to{transform:translateY(-5px)}}.dot-a{left:68%;top:19%}.dot-b{left:22%;top:64%}.dot-c{left:57%;top:43%}.dot-d{left:32%;top:27%}
 .risk-row{min-height:64px;display:grid;align-content:center;position:relative;border-bottom:1px solid var(--line)}.risk-row>span{font-size:11px}.risk-row small{margin-top:4px;color:var(--muted);font-size:9px}.risk-row em{position:absolute;right:0;top:23px;color:var(--orange);font-size:9px;font-style:normal}
 .mockup-progress{height:4px;background:#edf1f6}.mockup-progress span{display:block;width:42%;height:100%;background:linear-gradient(90deg,var(--blue),var(--green));animation:progress 4s ease-in-out infinite alternate}@keyframes progress{to{width:78%}}
+.dashboard-mockup { position:relative; }
+.dashboard-scan { position:absolute; z-index:4; inset:0; height:24%; pointer-events:none; opacity:.18; background:linear-gradient(transparent,rgba(37,99,235,.22),transparent); animation:dashboardScan 5.2s linear infinite; }
+@keyframes dashboardScan { from{transform:translateY(-100%)}to{transform:translateY(520%)} }
+.dashboard-view-tabs { padding:10px 16px; display:flex; gap:7px; border-bottom:1px solid var(--line); background:#f8faff; }
+.dashboard-view-tabs button { padding:7px 10px; border:1px solid transparent; border-radius:9px; color:var(--muted); background:transparent; font-size:10px; font-weight:750; }
+.dashboard-view-tabs button:hover,.dashboard-view-tabs button.is-active { color:var(--blue); border-color:rgba(37,99,235,.18); background:white; box-shadow:0 6px 15px rgba(37,99,235,.08); }
+.dashboard-view { min-height:292px; }
+.sku-opportunity-list { margin-top:20px; display:grid; }
+.sku-opportunity-list > div { min-height:62px; display:grid; grid-template-columns:.65fr 1.3fr .55fr; align-items:center; gap:12px; border-bottom:1px solid var(--line); }
+.sku-opportunity-list strong { color:var(--blue); font-size:11px; }.sku-opportunity-list span{color:var(--text-soft);font-size:10px}.sku-opportunity-list em{justify-self:end;padding:5px 8px;border-radius:999px;color:#147a36;background:var(--green-soft);font-size:9px;font-style:normal}
+.roi-simulator { margin-top:28px; display:grid; gap:23px; }
+.roi-simulator > div { display:grid; grid-template-columns:72px 1fr 38px; align-items:center; gap:10px; }
+.roi-simulator span,.roi-simulator strong { font-size:10px; }.roi-simulator strong{text-align:right;color:var(--blue)}
+.roi-simulator i { height:10px; overflow:hidden; border-radius:999px; background:#e8edf5; }.roi-simulator b{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--blue),var(--cyan));animation:roiGrow .8s cubic-bezier(.22,1,.36,1) both}@keyframes roiGrow{from{width:0}}
+.project-status { margin-top:14px; display:inline-flex; align-items:center; gap:8px; padding:7px 10px; border:1px solid rgba(249,115,22,.2); border-radius:999px; color:#b45309; background:var(--orange-soft); font-size:12px; font-weight:800; }
+.project-status i { width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(249,115,22,.35);animation:statusPulse 2s infinite}@keyframes statusPulse{50%{box-shadow:0 0 0 7px rgba(249,115,22,0)}}
+.project-testing-note { margin:15px 0 0; padding:15px 17px; border-radius:13px; color:var(--text-soft); background:var(--blue-soft); font-size:14px; line-height:1.7; }
+.project-github-link { margin-top:15px; }
+.project-github-link:hover { background:#1d4ed8; transform:translateY(-2px); }
 .settlement-mockup{padding-bottom:22px}.settlement-summary{display:grid;grid-template-columns:1.2fr .8fr .8fr;border-bottom:1px solid var(--line)}.settlement-summary>div{min-height:90px;padding:18px;display:grid;align-content:space-between;border-right:1px solid var(--line)}.settlement-summary>div:nth-child(1){background:var(--blue-soft)}.settlement-summary>div:nth-child(2){background:var(--orange-soft)}.settlement-summary>div:nth-child(3){background:var(--green-soft);border:0}.settlement-summary span{color:var(--muted);font-size:9px}.settlement-summary strong{font-size:clamp(16px,1.5vw,25px)}
 .settlement-table{padding:12px 18px}.settlement-row{min-height:55px;display:grid;grid-template-columns:1fr .7fr .9fr .7fr;align-items:center;border-bottom:1px solid var(--line)}.settlement-row span{font-size:10px}.settlement-row span:not(:first-child){text-align:right}.settlement-row.table-head span{color:var(--faint);font-size:9px}.status-cell{color:var(--green)!important;font-weight:750}.settlement-note{margin:10px 18px 0;padding:16px;border-left:4px solid var(--orange);background:var(--orange-soft)}.settlement-note span{color:var(--orange);font-size:9px}.settlement-note p{margin:6px 0 0;color:var(--muted);font-size:11px}
 .compact-case-visual { max-width:530px; padding-bottom:28px; }
@@ -745,6 +767,8 @@
   .logo-loop-track { animation-duration:50s; }
   .logo-loop-fade { display:none; }
   .toolchain-heading h2 { font-size:40px; }
+  .dashboard-scan { display:none; }
+  .dashboard-kpis > div > i { animation:none; transform:scaleX(.65); opacity:.45; }
 }
 
 @media(prefers-reduced-motion:reduce) {
