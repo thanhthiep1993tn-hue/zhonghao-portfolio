@@ -8,6 +8,7 @@ import PhotoParallax from './effects/PhotoParallax'
 import Reveal from './effects/Reveal'
 import DotGrid from './effects/DotGrid'
 import HeroStage from './effects/HeroStage'
+import SplitText from './effects/SplitText'
 
 const colors = ['#1D4ED8', '#2563EB', '#0891B2', '#0F766E', '#2563EB']
 
@@ -29,11 +30,11 @@ function Hero() {
             </div>
           </Reveal>
           <h1>
-            <BlurText
+            <SplitText
               text={hero.titlePrefix}
-              animateBy="words"
-              delay={75}
-              stepDuration={0.5}
+              splitType="chars"
+              delay={35}
+              duration={0.75}
               className="hero-title-line"
             />
             <span className="hero-title-line hero-title-line-second">

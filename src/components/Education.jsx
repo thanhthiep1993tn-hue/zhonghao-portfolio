@@ -1,6 +1,7 @@
 import { education } from '../data/portfolio'
 import BlurText from './effects/BlurText'
 import Reveal from './effects/Reveal'
+import SplitText from './effects/SplitText'
 
 const flow = ['田野观察', '用户研究', '数据分析', '业务系统']
 
@@ -10,7 +11,7 @@ function Education() {
       <div className="shell">
         <div className="section-number">01 / 教育背景</div>
         <div className="section-heading split-heading">
-          <BlurText text="教育背景：从社会学训练到计算社会科学方法。" as="h2" className="section-title" />
+          <SplitText text="教育背景：从社会学训练到计算社会科学方法。" tag="h2" splitType="words" className="section-title" />
           <Reveal delay={0.1}>
             <p className="section-subtitle">教育经历不是单纯的学历标签，而是形成问题意识、研究方法和数据分析能力的过程。</p>
           </Reveal>

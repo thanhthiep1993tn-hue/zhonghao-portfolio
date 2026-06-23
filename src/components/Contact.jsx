@@ -5,6 +5,7 @@ import GradientText from './effects/GradientText'
 import MagneticButton from './effects/MagneticButton'
 import Reveal from './effects/Reveal'
 import DotGrid from './effects/DotGrid'
+import SplitText from './effects/SplitText'
 
 function Contact() {
   const [copied, setCopied] = useState('')
@@ -31,7 +32,7 @@ function Contact() {
       <div className="shell contact-inner">
         <p className="contact-eyebrow">{contact.eyebrow}</p>
         <h2>
-          <BlurText text={contact.titlePrefix} />
+          <SplitText text={contact.titlePrefix} splitType="words" />
           {' '}
           <GradientText>{contact.highlight}</GradientText>
           {contact.titleSuffix}

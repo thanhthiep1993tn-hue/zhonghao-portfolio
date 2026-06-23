@@ -1,52 +1,60 @@
-import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { workExperience } from '../data/portfolio'
-import BlurText from './effects/BlurText'
+import { useState } from 'react'
+import { education, experienceIndex, workExperience } from '../data/portfolio'
+import AnimatedList from './effects/AnimatedList'
 import Reveal from './effects/Reveal'
+import SplitText from './effects/SplitText'
 
 function WorkExperience() {
-  const [open, setOpen] = useState(0)
+  const [selectedId, setSelectedId] = useState(experienceIndex[0].id)
   const reduced = useReducedMotion()
+  const selected = experienceIndex.find((item) => item.id === selectedId)
+  const detail = selected.type === 'work'
+    ? workExperience[selected.sourceIndex]
+    : education[selected.sourceIndex]
 
   return (
     <section className="section section-anchor experience-section" id="experience">
       <div className="shell">
-        <div className="section-number">05 / 工作经历</div>
+        <div className="section-number">05 / 经历与训练</div>
         <div className="section-heading split-heading">
-          <BlurText text="经历要看见问题、行动和产出。" as="h2" className="section-title" />
-          <Reveal delay={0.1}>
-            <p className="section-subtitle">每段经历都不是一行职位，而是一组真实业务问题，以及我如何参与拆解和推进。</p>
-          </Reveal>
+          <SplitText text="经历要看见问题、行动和产出。" tag="h2" splitType="words" className="section-title" />
+          <Reveal delay={0.1}><p className="section-subtitle">选择一段经历，查看我面对的问题、做过的拆解，以及最后留下的材料与方法。</p></Reveal>
         </div>
-        <div className="experience-list">
-          {workExperience.map((item, index) => {
-            const isOpen = open === index
-            return (
-              <Reveal as="article" className={`experience-card ${item.tone} ${isOpen ? 'is-open' : ''}`} key={item.company}>
-                <button className="experience-summary" onClick={() => setOpen(isOpen ? -1 : index)} aria-expanded={isOpen}>
-                  <span className="experience-index">{String(index + 1).padStart(2, '0')}</span>
-                  <time>{item.date}</time>
-                  <div><h3>{item.company}</h3><p>{item.role}</p></div>
-                  <span className="experience-toggle">{isOpen ? '收起 −' : '展开 +'}</span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      className="experience-detail"
-                      initial={reduced ? false : { height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    >
-                      <div className="experience-problem"><span>我面对的问题</span><p>{item.problem}</p></div>
-                      <div><span>我做的事情</span><ul>{item.actions.map((action) => <li key={action}>{action}</li>)}</ul></div>
-                      <div><span>代表产出</span><div className="output-list">{item.outputs.map((output) => <strong key={output}>{output}</strong>)}</div></div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </Reveal>
-            )
-          })}
+
+        <div className="experience-browser">
+          <AnimatedList items={experienceIndex} selectedId={selectedId} onSelect={setSelectedId} ariaLabel="经历与教育列表" />
+          <div className="experience-detail-stage">
+            <AnimatePresence mode="wait">
+              <motion.article
+                className="experience-focus-card"
+                key={selectedId}
+                initial={reduced ? false : { opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: .35 }}
+              >
+                <div className="experience-focus-head">
+                  <span>{selected.type === 'work' ? '工作经历' : '教育背景'}</span>
+                  <time>{selected.meta}</time>
+                  <h3>{selected.title}</h3>
+                  <strong>{selected.subtitle}</strong>
+                </div>
+                {selected.type === 'work' ? (
+                  <div className="experience-focus-body">
+                    <section><small>我面对的问题</small><p>{detail.problem}</p></section>
+                    <section><small>我做了什么</small><ul>{detail.actions.map((action) => <li key={action}>{action}</li>)}</ul></section>
+                    <section><small>代表产出</small><div className="output-list">{detail.outputs.map((output) => <strong key={output}>{output}</strong>)}</div></section>
+                  </div>
+                ) : (
+                  <div className="experience-focus-body education-focus-body">
+                    <section><small>训练如何形成</small><p>{detail.description}</p></section>
+                    <section><small>方法关键词</small><div className="tag-list">{detail.keywords.map((keyword) => <span key={keyword}>{keyword}</span>)}</div></section>
+                  </div>
+                )}
+              </motion.article>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>

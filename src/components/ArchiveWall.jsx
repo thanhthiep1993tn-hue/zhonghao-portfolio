@@ -4,6 +4,8 @@ import BlurText from './effects/BlurText'
 import DotGrid from './effects/DotGrid'
 import ArchiveLightbox from './effects/ArchiveLightbox'
 import Reveal from './effects/Reveal'
+import MagicBento from './effects/MagicBento'
+import SplitText from './effects/SplitText'
 
 function CodeVisual({ kind }) {
   if (kind === 'github') {
@@ -21,12 +23,12 @@ function ArchiveWall() {
       <div className="shell archive-content">
         <div className="section-number">02 / 研究与实践档案</div>
         <div className="section-heading split-heading">
-          <BlurText text="研究与实践档案：把经历变成可以看见的作品。" as="h2" className="section-title" />
+          <SplitText text="研究与实践档案：把经历变成可以看见的作品。" tag="h2" splitType="words" className="section-title" />
           <Reveal delay={0.1}><p className="section-subtitle">这里展示我如何把田野观察、论文写作、代码实践和业务项目整理成可复盘的材料。</p></Reveal>
         </div>
         <div className="evidence-grid">
           {archiveItems.map((item, index) => (
-            <Reveal as="article" className={`evidence-card ${item.tone} ${item.size || ''}`} delay={(index % 3) * 0.06} key={item.id}>
+            <MagicBento className={`evidence-card ${item.size || ''}`} tone={item.tone} key={item.id}>
               <div className="evidence-card-top"><span>{item.type}</span><small>{String(index + 1).padStart(2, '0')}</small></div>
               {item.assets ? (
                 <div className={`evidence-images ${item.id === 'fieldwork' ? 'fieldwork-filmstrip' : item.assets.length > 1 ? 'is-pair' : ''}`}>
@@ -40,7 +42,7 @@ function ArchiveWall() {
                 <div className="tag-list">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                 {(item.file || item.url) && <a className="evidence-link" href={item.file || item.url} target="_blank" rel="noreferrer">{item.type === '代码' ? '下载代码档案' : '打开完整材料'} ↗</a>}
               </div>
-            </Reveal>
+            </MagicBento>
           ))}
         </div>
       </div>

@@ -8,6 +8,7 @@ import RVisualization from './components/RVisualization'
 import Projects from './components/Projects'
 import WorkExperience from './components/WorkExperience'
 import PersonalProfile from './components/PersonalProfile'
+import SkillsMethods from './components/SkillsMethods'
 import Contact from './components/Contact'
 import IntroReveal from './components/effects/IntroReveal'
 import SectionProgress from './components/effects/SectionProgress'
@@ -49,6 +50,7 @@ function App() {
         <Projects />
         <WorkExperience />
         <PersonalProfile />
+        <SkillsMethods />
         <Contact />
       </main>
     </MotionConfig>

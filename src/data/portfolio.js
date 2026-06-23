@@ -166,7 +166,7 @@ export const archiveItems = [
 export const rVisualization = {
   title: 'R 语言与数据可视化：把模型结果讲清楚。',
   description: '我使用 R 进行数据清洗、统计建模和可视化表达。R 对我来说不是简历里的工具名，而是一种把社会现象转化为可解释图形的工作方式。',
-  tools: ['R', 'ggplot2', 'dplyr', 'gtsummary', 'broom', 'lme4', 'poLCA', 'gganimate', '回归分析', '人口方法', '政策评估'],
+  tools: ['R', 'ggplot2', 'dplyr', 'gtsummary', 'broom', 'performance', 'lme4', 'poLCA', 'gganimate', '回归分析', '人口方法', '政策评估'],
   codeExample: `library(tidyverse)
 library(ggplot2)
 
@@ -347,6 +347,33 @@ export const workExperience = [
     tone: 'green',
   },
 ]
+
+export const experienceIndex = [
+  ...workExperience.map((item, index) => ({
+    id: `work-${index}`,
+    title: item.company,
+    subtitle: item.role,
+    meta: item.date,
+    type: 'work',
+    sourceIndex: index,
+  })),
+  ...education.map((item, index) => ({
+    id: `education-${index}`,
+    title: item.school,
+    subtitle: item.degree,
+    meta: item.period,
+    type: 'education',
+    sourceIndex: index,
+  })),
+]
+
+export const projectIndex = projects.map((item) => ({ id: item.id, title: item.title }))
+
+export const toolLoopItems = [
+  'R', 'ggplot2', 'dplyr', 'gtsummary', 'broom', 'performance', 'lme4', 'poLCA',
+  'Python', 'pandas', 'Flask', 'Streamlit', 'React', 'Vite', 'SQLite',
+  'Excel', 'SQL', 'Ahrefs', 'JTBD', 'KHB', 'DID', 'RDD', 'IV',
+].map((title) => ({ title }))
 
 export const interests = [
   { id: 'football', title: '足球', copy: '协作、空间判断与临场行动', image: '/assets/life/football-action-new.webp', color: 'blue' },

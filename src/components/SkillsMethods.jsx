@@ -1,25 +1,18 @@
-import { strengths } from '../data/portfolio'
-import BlurText from './effects/BlurText'
+import { strengths, toolLoopItems } from '../data/portfolio'
+import LogoLoop from './effects/LogoLoop'
 import Reveal from './effects/Reveal'
 
 function SkillsMethods() {
   return (
-    <section className="section methods-section" id="methods">
+    <section className="toolchain-section" id="methods">
       <div className="shell">
-        <div className="section-number">08 / 能力与方法</div>
-        <div className="section-heading split-heading">
-          <BlurText text="从现场到系统，我通常这样工作。" as="h2" className="section-title" />
-          <Reveal delay={0.1}><p className="section-subtitle">观察不是终点，执行也不是终点。重要的是让判断留下结构，让行动能够继续被验证。</p></Reveal>
-        </div>
-        <div className="methods-grid">
-          {strengths.map((item, index) => (
-            <Reveal as="article" className={`method-card method-${index + 1}`} key={item.number}>
-              <span>{item.number}</span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <div className="tag-list">{item.keywords.map((word) => <span key={word}>{word}</span>)}</div>
-            </Reveal>
-          ))}
+        <Reveal className="toolchain-heading">
+          <div><span>07 / 能力工具链</span><h2>工具不是清单，而是完成工作的组合。</h2></div>
+          <p>从研究方法到运营分析，再到可运行的产品原型，我会按问题选择工具，而不是为了展示技术名词。</p>
+        </Reveal>
+        <LogoLoop items={toolLoopItems} speed={70} />
+        <div className="toolchain-methods">
+          {strengths.map((item) => <span key={item.number}>{item.title}</span>)}
         </div>
       </div>
     </section>

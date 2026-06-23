@@ -2,6 +2,7 @@ import { getMediaByUsage, interests, lifeGallery, profile, strengths } from '../
 import BlurText from './effects/BlurText'
 import Reveal from './effects/Reveal'
 import ENFPIllustration from './mockups/ENFPIllustration'
+import SplitText from './effects/SplitText'
 
 function PersonalProfile() {
   const portrait = getMediaByUsage('life', 'profile-portrait')
@@ -9,7 +10,7 @@ function PersonalProfile() {
     <section className="section section-anchor profile-section" id="profile">
       <div className="shell">
         <div className="section-number">06 / 个人方法与生活</div>
-        <BlurText text="我如何工作，也如何生活。" as="h2" className="section-title" />
+        <SplitText text="我如何工作，也如何生活。" tag="h2" splitType="words" className="section-title" />
         <div className="profile-story">
           <div className="profile-copy">
             {profile.statement.map((paragraph, index) => (
