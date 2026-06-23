@@ -1,4 +1,4 @@
-import { getMediaByUsage, interests, lifeGallery, profile } from '../data/portfolio'
+import { getMediaByUsage, interests, lifeGallery, profile, strengths } from '../data/portfolio'
 import BlurText from './effects/BlurText'
 import Reveal from './effects/Reveal'
 import ENFPIllustration from './mockups/ENFPIllustration'
@@ -8,7 +8,7 @@ function PersonalProfile() {
   return (
     <section className="section section-anchor profile-section" id="profile">
       <div className="shell">
-        <div className="section-number">07 / 关于我</div>
+        <div className="section-number">06 / 个人方法与生活</div>
         <BlurText text="我如何工作，也如何生活。" as="h2" className="section-title" />
         <div className="profile-story">
           <div className="profile-copy">
@@ -21,6 +21,22 @@ function PersonalProfile() {
             <div><span>场上 27 号</span><strong>协作、判断、行动。</strong></div>
           </Reveal>
         </div>
+
+        <Reveal className="profile-methods">
+          <div className="profile-methods-heading">
+            <span>我的工作方法</span>
+            <p>从现场理解问题，再把判断变成团队可以继续使用的结构。</p>
+          </div>
+          <div className="profile-methods-grid">
+            {strengths.slice(0, 4).map((item) => (
+              <article key={item.number}>
+                <small>{item.number}</small>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </Reveal>
 
         <div className="interest-grid">
           {interests.map((interest, index) => (

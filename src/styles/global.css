@@ -31,6 +31,8 @@
   --radius-lg: 26px;
   --radius-md: 18px;
   --max-width: 1680px;
+  --section-y: clamp(88px, 10vw, 160px);
+  --section-gap: clamp(36px, 5vw, 72px);
 }
 
 * { box-sizing: border-box; }
@@ -88,8 +90,14 @@ button:focus-visible, a:focus-visible {
 }
 
 .section {
-  padding: clamp(104px, 9vw, 164px) 0;
+  padding: var(--section-y) 0;
   position: relative;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(20px, 2vw, 32px);
 }
 
 .section-anchor { scroll-margin-top: 82px; }

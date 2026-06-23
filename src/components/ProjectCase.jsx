@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import CheckinSystemMockup from './mockups/CheckinSystemMockup'
 import DashboardMockup from './mockups/DashboardMockup'
 import SettlementMockup from './mockups/SettlementMockup'
@@ -22,13 +24,17 @@ function ProjectVisual({ project }) {
   return <CompactVisual type={project.visual} metrics={project.metrics} />
 }
 
-function ProjectCase({ project, index }) {
+function ProjectCase({ project, index, focused, onFocus }) {
   const checkin = project.id === 'event-checkin'
+  const [expanded, setExpanded] = useState(false)
+  const reduced = useReducedMotion()
   return (
     <Reveal
       as="article"
-      className={`project-case ${project.featured ? 'is-featured' : 'is-compact'} ${checkin ? 'is-checkin' : ''}`}
+      className={`project-case ${project.featured ? 'is-featured' : 'is-compact'} ${checkin ? 'is-checkin' : ''} ${focused && focused !== project.id ? 'is-dimmed' : ''}`}
       delay={(index % 2) * 0.05}
+      onMouseEnter={() => onFocus(project.id)}
+      onMouseLeave={() => onFocus(null)}
     >
       <div className="project-case-copy">
         <div className="case-meta">
@@ -40,21 +46,37 @@ function ProjectCase({ project, index }) {
         <p className="case-summary">{project.summary}</p>
 
         {checkin ? (
-          <div className="checkin-case-detail">
-            <div><span>业务问题</span><p>{project.sections.problem}</p></div>
-            <div><span>系统方案</span><p>{project.sections.solution}</p></div>
-            <div className="logic-list">
-              <span>核心代码逻辑</span>
-              <ul>{project.sections.logic.map((item) => <li key={item}>{item}</li>)}</ul>
-            </div>
-            <div className="next-list">
-              <span>下一步优化</span>
-              <p>{project.sections.next.join(' / ')}</p>
-            </div>
-            <a className="case-link" href={project.sections.github} target="_blank" rel="noreferrer">
-              查看 GitHub 代码 ↗
-            </a>
-          </div>
+          <>
+            <div className="case-value"><span>运营价值</span><p>{project.sections.value}</p></div>
+            <button className="case-expand" onClick={() => setExpanded((value) => !value)} aria-expanded={expanded}>
+              {expanded ? '收起完整拆解 −' : '查看完整拆解 +'}
+            </button>
+            <AnimatePresence initial={false}>
+              {expanded ? (
+                <motion.div
+                  className="checkin-case-detail"
+                  initial={reduced ? false : { height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: .42, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <div><span>我面对的问题</span><p>{project.sections.problem}</p></div>
+                  <div><span>我做的拆解</span><p>{project.sections.solution}</p></div>
+                  <div className="logic-list">
+                    <span>系统与方法</span>
+                    <ul>{project.sections.logic.map((item) => <li key={item}>{item}</li>)}</ul>
+                  </div>
+                  <div className="next-list">
+                    <span>下一步优化</span>
+                    <p>{project.sections.next.join(' / ')}</p>
+                  </div>
+                  <a className="case-link" href={project.sections.github} target="_blank" rel="noreferrer">
+                    查看 GitHub 代码 ↗
+                  </a>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+          </>
         ) : project.points ? (
           <>
             <ul className="project-points">{project.points.map((point) => <li key={point}>{point}</li>)}</ul>

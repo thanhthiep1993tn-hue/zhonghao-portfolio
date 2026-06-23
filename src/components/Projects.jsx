@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { projects } from '../data/portfolio'
 import BlurText from './effects/BlurText'
 import GradientText from './effects/GradientText'
@@ -5,10 +6,11 @@ import Reveal from './effects/Reveal'
 import ProjectCase from './ProjectCase'
 
 function Projects() {
+  const [focused, setFocused] = useState(null)
   return (
     <section className="section section-anchor projects-section" id="projects">
       <div className="shell">
-        <div className="section-number">05 / 产品与运营项目</div>
+        <div className="section-number">04 / 产品与运营项目</div>
         <div className="section-heading split-heading">
           <h2 className="section-title">
             把
@@ -19,8 +21,16 @@ function Projects() {
           </Reveal>
         </div>
         <BlurText text="重点案例与业务档案" as="p" className="projects-index-title" delay={55} />
-        <div className="projects-grid">
-          {projects.map((project, index) => <ProjectCase project={project} index={index} key={project.id} />)}
+        <div className={`projects-grid ${focused ? 'has-focus' : ''}`}>
+          {projects.map((project, index) => (
+            <ProjectCase
+              project={project}
+              index={index}
+              focused={focused}
+              onFocus={setFocused}
+              key={project.id}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -5,7 +5,6 @@ const navItems = [
   ['首页', 'home'],
   ['教育', 'education'],
   ['档案', 'archive'],
-  ['研究', 'academic'],
   ['项目', 'projects'],
   ['经历', 'experience'],
   ['关于我', 'profile'],
@@ -17,14 +16,14 @@ function Navbar() {
   const [active, setActive] = useState('home')
 
   useEffect(() => {
-    const spyItems = [...navItems, ['研究', 'r-visualization']]
+    const spyItems = [...navItems, ['档案', 'r-visualization']]
     const onScroll = () => {
       setScrolled(window.scrollY > 16)
       const marker = window.scrollY + window.innerHeight * 0.34
       let current = 'home'
       spyItems.forEach(([, id]) => {
         const section = document.getElementById(id)
-        if (section && section.offsetTop <= marker) current = id === 'r-visualization' ? 'academic' : id
+        if (section && section.offsetTop <= marker) current = id === 'r-visualization' ? 'archive' : id
       })
       setActive(current)
     }

@@ -29,7 +29,7 @@ function ArchiveWall() {
             <Reveal as="article" className={`evidence-card ${item.tone} ${item.size || ''}`} delay={(index % 3) * 0.06} key={item.id}>
               <div className="evidence-card-top"><span>{item.type}</span><small>{String(index + 1).padStart(2, '0')}</small></div>
               {item.assets ? (
-                <div className={`evidence-images ${item.assets.length > 1 ? 'is-pair' : ''}`}>
+                <div className={`evidence-images ${item.id === 'fieldwork' ? 'fieldwork-filmstrip' : item.assets.length > 1 ? 'is-pair' : ''}`}>
                   {item.assets.map((asset) => <button key={asset} onClick={() => setLightbox({ item, image: asset })}><img src={asset} alt={item.title} /></button>)}
                 </div>
               ) : item.image ? (

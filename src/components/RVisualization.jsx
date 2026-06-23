@@ -8,7 +8,7 @@ function RVisualization() {
   return (
     <section className="section section-anchor r-section" id="r-visualization">
       <div className="shell">
-        <div className="section-number">04 / R 语言与数据可视化</div>
+        <div className="section-number">03 / R 语言与数据可视化</div>
         <div className="section-heading split-heading">
           <BlurText text={rVisualization.title} as="h2" className="section-title" />
           <Reveal delay={0.1}><p className="section-subtitle">{rVisualization.description}</p></Reveal>

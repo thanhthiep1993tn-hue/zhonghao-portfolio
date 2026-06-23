@@ -7,14 +7,16 @@ import MagneticButton from './effects/MagneticButton'
 import PhotoParallax from './effects/PhotoParallax'
 import Reveal from './effects/Reveal'
 import DotGrid from './effects/DotGrid'
+import HeroStage from './effects/HeroStage'
 
-const colors = ['#2563EB', '#06B6D4', '#22C55E', '#F97316', '#2563EB']
+const colors = ['#1D4ED8', '#2563EB', '#0891B2', '#0F766E', '#2563EB']
 
 function Hero() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
     <section className="hero section-anchor" id="home">
+      <HeroStage />
       <div className="hero-shape hero-shape-blue" />
       <div className="hero-shape hero-shape-green" />
       <div className="hero-dot-grid"><DotGrid dotSize={6} gap={22} baseColor="#B8C7FF" activeColor="#2563EB" proximity={120} /></div>

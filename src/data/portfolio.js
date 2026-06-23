@@ -109,7 +109,7 @@ export const archiveItems = [
     ],
     tags: ['社会学', '入户访谈', '用户观察'],
     tone: 'blue',
-    size: 'large',
+    size: 'wide',
   },
   {
     id: 'paper',
@@ -213,6 +213,7 @@ const sharedCheckin = {
   github: 'https://github.com/thanhthiep1993tn-hue/lecture-checkin/tree/main',
   problem: '线下活动的报名名单、现场签到、临时访客、二维码核验和后续转化数据彼此割裂。',
   solution: '用 Flask + SQLite 搭建轻量级系统，将名单导入、移动端签到、工作人员扫码、权限控制和 Excel 导出接入同一流程。',
+  value: '它不是为了替代大型 CRM，而是先接住线下活动中最容易丢失的数据：谁报名、谁到场、谁是临时访客、谁已经开户，以及哪些渠道带来了有效用户。',
   dataModel: [
     ['registrants', '报名信息、联系方式、来源、账户状态与唯一 token'],
     ['checkins', '签到方式、状态、时间、IP 与浏览器信息'],
@@ -264,6 +265,7 @@ export const projects = [
     summary:
       '这个项目关注渠道运营里最容易变复杂的部分：不同供应商、活动、费用口径和转化状态混在一起后，如何判断该不该结算、结算多少、争议点在哪里。',
     tags: ['供应商管理', 'CPA', '费用核算', '结算风险'],
+    featured: true,
     mockup: 'settlement',
     points: ['供应商明细', '异常费用标记', '开户与入金状态', '结算争议点', '付款判断'],
     value: '统一统计口径、责任边界和费用结构，为供应商沟通与后续谈判提供依据。',

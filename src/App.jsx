@@ -4,13 +4,13 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Education from './components/Education'
 import ArchiveWall from './components/ArchiveWall'
-import AcademicWork from './components/AcademicWork'
 import RVisualization from './components/RVisualization'
 import Projects from './components/Projects'
 import WorkExperience from './components/WorkExperience'
 import PersonalProfile from './components/PersonalProfile'
-import SkillsMethods from './components/SkillsMethods'
 import Contact from './components/Contact'
+import IntroReveal from './components/effects/IntroReveal'
+import SectionProgress from './components/effects/SectionProgress'
 // import SplashCursor from './components/effects/SplashCursor'
 
 const ENABLE_SPLASH_CURSOR = false
@@ -33,6 +33,8 @@ function App() {
   return (
     <MotionConfig reducedMotion="user">
       <main>
+        <IntroReveal />
+        <SectionProgress />
         <Navbar />
         {ENABLE_SPLASH_CURSOR ? (
           <div aria-hidden="true">
@@ -43,12 +45,10 @@ function App() {
         <Hero />
         <Education />
         <ArchiveWall />
-        <AcademicWork />
         <RVisualization />
         <Projects />
         <WorkExperience />
         <PersonalProfile />
-        <SkillsMethods />
         <Contact />
       </main>
     </MotionConfig>
