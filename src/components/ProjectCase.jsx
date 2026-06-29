@@ -1,9 +1,16 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import CheckinSystemMockup from './mockups/CheckinSystemMockup'
 import DashboardMockup from './mockups/DashboardMockup'
 import SettlementMockup from './mockups/SettlementMockup'
 import Reveal from './effects/Reveal'
+
+const detailLinks = {
+  'event-checkin': '/works/checkin-system',
+  'category-copilot': '/works/category-growth-copilot',
+  settlement: '/works/settlement-dashboard',
+}
 
 function CompactVisual({ type, metrics }) {
   const labels = { growth: '增长漏斗', content: '内容触达', research: 'JTBD 洞察' }
@@ -49,6 +56,9 @@ function ProjectCase({ project, index, focused, onFocus }) {
         {checkin ? (
           <>
             <div className="case-value"><span>运营价值</span><p>{project.sections.value}</p></div>
+            <Link className="case-link case-detail-link" to={detailLinks[project.id]}>
+              打开项目详情页 <span>→</span>
+            </Link>
             <button className="case-expand" onClick={() => setExpanded((value) => !value)} aria-expanded={expanded}>
               {expanded ? '收起完整拆解 −' : '查看完整拆解 +'}
             </button>
@@ -82,6 +92,11 @@ function ProjectCase({ project, index, focused, onFocus }) {
           <>
             <ul className="project-points">{project.points.map((point) => <li key={point}>{point}</li>)}</ul>
             <div className="case-value"><span>业务价值</span><p>{project.value}</p></div>
+            {detailLinks[project.id] ? (
+              <Link className="case-link case-detail-link" to={detailLinks[project.id]}>
+                打开项目详情页 <span>→</span>
+              </Link>
+            ) : null}
             {project.statusDescription ? <p className="project-testing-note">{project.statusDescription}</p> : null}
             {project.github ? (
               <a className="case-link project-github-link" href={project.github} target="_blank" rel="noreferrer">

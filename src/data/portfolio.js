@@ -23,27 +23,22 @@ export const hero = {
   titlePrefix: '把真实场景里的问题，',
   highlight: '做成可以运行的业务系统。',
   description:
-    '我从社会学、田野调查和用户研究出发，进入产品运营、采销运营和渠道增长现场。相比只描述经历，我更希望展示：一个模糊的用户、渠道或供应商问题，如何被拆成指标、流程、看板、代码和下一步动作。',
+    '我从社会学训练和用户研究出发，进入产品运营、采销运营和渠道增长现场。相比只描述经历，我更希望展示：一个模糊的用户、渠道或供应商问题，如何被拆成指标、流程、看板、代码和下一步动作。',
 }
 
 export const heroStats = [
-  { value: 100, suffix: '+ 小时', label: '田野调查与市场观察', color: 'blue' },
+  { value: 3, suffix: ' 类', label: '业务系统原型', color: 'blue' },
   { value: 10, suffix: '万字', label: '用户访谈资料分析', color: 'purple' },
   { value: 600, suffix: '+', label: '潜在合作渠道触达', color: 'green' },
   { value: 50, suffix: '万+', label: '内容累计播放', color: 'orange' },
-  { value: 6, suffix: ' 个', label: '业务与研究项目沉淀', color: 'pink' },
+  { value: 3, suffix: ' 份', label: 'R 课程代码档案', color: 'pink' },
 ]
 
 export const mediaLibrary = {
   profile: {
     heroPhoto: '/assets/profile/hero-portrait.webp',
+    heroCutout: '/assets/profile/life-photo-cutout.png',
   },
-  fieldwork: [
-    { src: '/assets/fieldwork/fieldwork-01.jpg', alt: '入户访谈现场', caption: '进入家庭场景，记录回答之外的空间与互动。', usedIn: 'academic-fieldwork-01' },
-    { src: '/assets/fieldwork/fieldwork-02.jpg', alt: '乡村道路上的场景观察', caption: '把路线、空间和行动放回具体环境中理解。', usedIn: 'academic-fieldwork-02' },
-    { src: '/assets/fieldwork/fieldwork-03.webp', alt: '田野调查团队合影', caption: '田野工作结束后，与社区参与者和团队留下记录。', usedIn: 'archive-fieldwork' },
-    { src: '/assets/fieldwork/urban-observation.webp', alt: '广州地铁城市观察', caption: '城市基础设施也是理解流动与秩序的入口。', usedIn: 'academic-fieldwork-03' },
-  ],
   academic: [
     { src: '/assets/academic/bjut-graduation.webp', alt: '北京工业大学学位授予仪式', caption: '社会学本科训练的阶段性完成。', usedIn: 'education-bjut' },
     {
@@ -54,6 +49,12 @@ export const mediaLibrary = {
       credit: 'Adon3465 / Wikimedia Commons / CC BY-SA 3.0',
       creditUrl: 'https://commons.wikimedia.org/wiki/File:University_of_Hong_Kong_Main_Building.jpg',
     },
+    { src: '/assets/academic/gganimate-demo.gif', alt: 'R 课程动态图示例', caption: '使用课程素材展示时间变化和集合关系。', usedIn: 'r-animated-plot' },
+  ],
+  projects: [
+    { src: '/assets/projects/checkin-system.png', alt: '线下活动用户运营系统截图', caption: '活动签到与二维码核验流程', usedIn: 'project-checkin' },
+    { src: '/assets/projects/retail-dashboard.png', alt: '零售品类增长决策看板截图', caption: '采销运营与品类经营看板', usedIn: 'project-retail' },
+    { src: '/assets/projects/settlement-dashboard.png', alt: '渠道与采销结算管理看板截图', caption: '供应商费用与结算状态管理', usedIn: 'project-settlement' },
   ],
   life: [
     { src: '/assets/life/football-action-new.webp', alt: '夜间足球射门', caption: '足球：协作、空间判断与临场行动。', usedIn: 'personal-football' },
@@ -99,17 +100,12 @@ export const education = [
 export const archiveItems = [
   {
     id: 'fieldwork',
-    type: '田野档案',
-    title: '100+ 小时田野调查与市场观察',
-    description: '进入社区和家庭现场，通过访谈、观察与记录理解行为背后的关系、空间与制度。',
-    assets: [
-      '/assets/fieldwork/fieldwork-01.jpg',
-      '/assets/fieldwork/fieldwork-02.jpg',
-      '/assets/fieldwork/fieldwork-03.webp',
-    ],
-    tags: ['社会学', '入户访谈', '用户观察'],
+    type: '方法卡',
+    title: '社会学训练与场景观察',
+    description: '社会学训练让我习惯从具体场景出发理解用户、空间和组织关系。当前不把照片作为展示重点，但这种观察方法贯穿了我后来的用户研究、渠道运营和产品化项目。',
+    tags: ['社会学训练', '场景观察', '用户研究方法'],
     tone: 'blue',
-    size: 'wide',
+    visual: 'method',
   },
   {
     id: 'paper',
@@ -164,26 +160,61 @@ export const archiveItems = [
 ]
 
 export const rVisualization = {
-  title: 'R 语言与数据可视化：把模型结果讲清楚。',
-  description: '我使用 R 进行数据清洗、统计建模和可视化表达。R 对我来说不是简历里的工具名，而是一种把社会现象转化为可解释图形的工作方式。',
-  tools: ['R', 'ggplot2', 'dplyr', 'gtsummary', 'broom', 'performance', 'lme4', 'poLCA', 'gganimate', '回归分析', '人口方法', '政策评估'],
+  title: 'R 语言与数据可视化：把社会问题转化为可解释的图形。',
+  description: '研究生阶段，我使用 R 进行数据清洗、统计建模、人口分析、政策评估和可视化表达。这里展示的不只是代码，而是我如何把抽象社会问题转化为变量、模型、图表和解释。',
+  tools: ['R', 'ggplot2', 'dplyr', 'gtsummary', 'broom', 'performance', 'lme4', 'poLCA', 'gganimate', '回归分析', '人口方法', '政策评估', 'DID', 'RDD', 'IV', '生命表', 'Leslie 矩阵'],
   codeExample: `library(tidyverse)
-library(ggplot2)
+library(lme4)
+library(performance)
+library(broom.mixed)
 
-df %>%
-  group_by(group, year) %>%
-  summarise(rate = mean(value, na.rm = TRUE)) %>%
-  ggplot(aes(year, rate, color = group)) +
-  geom_line(linewidth = 1.2) +
-  geom_point(size = 2) +
+model <- lmer(fert ~ urbnrr + mean_age + (1 | district), data = x)
+
+tidy(model, conf.int = TRUE) %>%
+  filter(effect == "fixed") %>%
+  ggplot(aes(estimate, term)) +
+  geom_point(size = 2.4, color = "#2563eb") +
+  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = .12) +
   theme_minimal()`,
 }
+
+export const rCourseWorks = [
+  {
+    title: '多层模型与地区差异分析',
+    type: '课程代码 / R 模型',
+    description: '基于 Bangladesh 地区数据，把区县层级差异转化为固定效应、随机截距和模型比较问题。',
+    tools: ['R', 'lme4', 'broom.mixed', 'performance', 'ggeffects'],
+    assets: { code: '/assets/academic/r-code-01.R', figure: '/assets/academic/r-visual-01.png', pdf: '/assets/academic/course-paper-01.pdf' },
+  },
+  {
+    title: 'ggplot2 与数据可视化表达',
+    type: '课程代码 / 图表设计',
+    description: '围绕联合国人口数据练习数据清洗、分组、坐标轴、图例和学术汇报风格图表。',
+    tools: ['R', 'ggplot2', 'dplyr', 'tidyr'],
+    assets: { code: '/assets/academic/r-code-02.R', figure: '/assets/academic/r-visual-02.png' },
+  },
+  {
+    title: '重复测量与随机斜率模型',
+    type: '课程作业 / R 代码',
+    description: '使用 sleepstudy 数据理解个体内变化、个体间差异、ICC 与随机斜率模型。',
+    tools: ['R', 'lme4', 'performance', 'broom.mixed'],
+    assets: { code: '/assets/academic/r-code-03.R' },
+  },
+]
+
+export const methodMap = [
+  { title: '真实场景观察', description: '先进入现场，理解用户、渠道、供应商或活动流程中的真实摩擦。' },
+  { title: '用户 / 渠道问题识别', description: '把“感觉不顺”的地方拆成角色、动作、流失节点和责任边界。' },
+  { title: '指标与数据结构拆解', description: '定义手机号、账户状态、SKU、CPA、ROI、库存周转等可追踪字段。' },
+  { title: '表格 / 看板 / 系统原型', description: '用 Excel、R、Flask、React 或 Streamlit 做成能被团队操作的工具。' },
+  { title: '运营复盘与下一步动作', description: '复盘不是汇报结果，而是沉淀下一轮执行的优先级和动作清单。' },
+]
 
 export const academicWorks = [
   {
     id: 'fieldwork-study',
     number: '01',
-    title: '100+ 小时田野调查与市场观察',
+    title: '场景观察与用户研究方法',
     description:
       '社会学训练让我长期接触田野调查、访谈和场景观察。相比只看抽象数据，我更习惯先进入真实场景，观察人如何行动、如何选择、如何在制度和空间中形成自己的行为逻辑。',
     tags: ['半结构化访谈', '参与式观察', '场景记录', '质性编码'],
@@ -371,6 +402,101 @@ export const experienceIndex = [
 ]
 
 export const projectIndex = projects.map((item) => ({ id: item.id, title: item.title }))
+
+export const projectDetails = [
+  {
+    slug: 'checkin-system',
+    projectId: 'event-checkin',
+    title: '线下活动用户运营系统',
+    subtitle: '把报名、签到、临时到访与后续转化接进同一条数据链路。',
+    github: sharedCheckin.github,
+    background: '这个项目源自一个非常具体的运营场景：线下讲座报名名单、现场签到、临时到访用户、重复签到、Webull 注册开户状态和后续复盘数据分散在不同表格和人工流程里。',
+    problem: '现场执行最怕“信息断裂”：报名表里有人，现场未必能快速匹配；临时用户可能有价值，却容易丢失；重复签到会污染数据；开户状态又在另一套表里。',
+    approach: '我的做法是用 Flask + SQLite 搭建一个轻量系统，把这些动作连接起来。优先用手机号匹配，邮箱作为备用匹配；每个报名用户拥有唯一二维码 token；工作人员扫码后完成核验，后台可补签、导出和记录状态。',
+    data: [
+      ['registrants', '姓名、手机号、邮箱、来源、Webull 状态、唯一 token'],
+      ['checkins', '签到时间、签到方式、工作人员、重复控制、设备信息'],
+      ['admin_users', '后台账号、权限、密码哈希'],
+    ],
+    features: ['Excel 名单导入', '手机号优先匹配', '邮箱备用匹配', '临时访客登记', '管理员手动补签', '唯一二维码 token', '工作人员扫码核验', '重复签到控制', 'Webull 注册开户状态记录', '签到记录导出', '邮件发送二维码'],
+    role: '我负责需求拆解、数据结构设计、主要代码实现、流程测试与业务复盘口径整理。',
+    value: '把一次线下活动从“靠人记”变成可追踪、可导出、可复盘的数据材料。',
+    next: ['多活动管理', 'CRM 线索分层', '短信提醒', '到场后转化漏斗', '活动复盘 dashboard'],
+    mockup: 'checkin',
+  },
+  {
+    slug: 'category-growth-copilot',
+    projectId: 'category-copilot',
+    title: '零售品类增长决策看板',
+    subtitle: '把采销判断从经验讨论变成可交互的周度经营工具。',
+    github: 'https://github.com/thanhthiep1993tn-hue/retail-category-growth-copilot',
+    status: '测试中 · 待上线',
+    background: '我把采销工作理解为商品、商家、库存、价格、毛利和活动资源之间的协调。这个看板模拟的是采销或品类运营团队在周度经营中真正会问的问题。',
+    problem: '哪些 SKU 值得加资源，哪些商家有风险，活动 ROI 是否覆盖成本，库存周转是否健康，这些问题如果分散在多个表里，很难形成一致动作。',
+    approach: '用 Streamlit / Python 思路整理品类、SKU、供应商、活动和周度指标，并在前端用交互式经营看板表达资源配置逻辑。',
+    data: [
+      ['category_weekly_metrics', 'GMV、毛利率、转化率、库存周转、活动成本'],
+      ['sku_opportunity', '增长潜力、毛利空间、库存风险、资源建议'],
+      ['campaign_roi', '活动成本、券成本、预估 GMV、ROI 与盈亏平衡点'],
+    ],
+    features: ['品类经营总览', '商家健康评分', 'SKU 潜力排序', '活动 ROI 模拟', '增长机会矩阵', '周度经营复盘', '下一步行动建议'],
+    role: '我负责业务问题建模、指标口径设计、模拟数据结构、看板交互和 case study 表达。',
+    value: '让采销运营从“看很多表”走向“围绕机会、风险和动作排序”。',
+    next: ['接入真实 SKU 数据', '沉淀周报模板', '加入库存预警', '加入供应商沟通记录', '上线内测版本'],
+    mockup: 'dashboard',
+  },
+  {
+    slug: 'settlement-dashboard',
+    projectId: 'settlement',
+    title: '渠道与采销结算管理看板',
+    subtitle: '让费用口径、转化状态和付款判断进入同一张表。',
+    background: '这个项目关注的是渠道运营里最容易变复杂的部分：不同供应商、不同活动、不同费用口径和不同转化状态混在一起后，如何判断该不该结算、结算多少、争议点在哪里。',
+    problem: '固定费用、CPA、礼券成本、运输费争议与开户 / 入金 / 仅注册状态混在一起时，结算沟通很容易变成来回对账。',
+    approach: '我把供应商、活动、用户状态、费用类型和付款判断拆成明确字段，并用看板呈现异常项、争议点和下一步沟通建议。',
+    data: [
+      ['suppliers', '供应商、合作类型、联系人、结算周期'],
+      ['campaigns', '活动、渠道、固定费用、礼券成本、运输费'],
+      ['conversion_status', '注册、开户、入金、是否符合付款条件'],
+    ],
+    features: ['供应商维度', '活动维度', '固定费用', 'CPA', '礼券成本', '运输费争议', '开户 / 入金 / 仅注册状态', '付款判断', '供应商沟通价值'],
+    role: '我负责结算问题拆解、费用口径整理、异常状态设计与看板表达。',
+    value: '减少结算争议，把供应商沟通建立在同一套数据口径上。',
+    next: ['加入附件凭证上传', '生成供应商对账单', '权限分级', '异常费用自动标记'],
+    mockup: 'settlement',
+  },
+]
+
+export const businessDemos = [
+  {
+    id: 'checkin',
+    title: '签到流程模拟器',
+    description: '输入手机号，模拟报名匹配、重复签到、临时访客和 Webull 状态判断。',
+  },
+  {
+    id: 'roi',
+    title: '采销活动 ROI 计算器',
+    description: '输入活动成本、GMV、毛利率和礼券成本，得到 ROI、盈亏平衡点和动作建议。',
+  },
+  {
+    id: 'channel',
+    title: '渠道质量评分器',
+    description: '输入注册、开户、入金、CPA 和留存率，模拟渠道质量评分和风险提示。',
+  },
+]
+
+export const quickProfile = {
+  name: '钟皓',
+  target: '产品运营 / 采销运营 / 用户运营 / 渠道增长',
+  base: '北京优先，其次香港 / 深圳',
+  directions: ['业务系统原型', '用户路径拆解', '渠道与供应商管理', '数据分析与可视化表达'],
+  projects: ['线下活动用户运营系统', '零售品类增长决策看板', '渠道与采销结算管理看板'],
+  abilities: ['用户路径拆解', '渠道与供应商管理', '数据分析与可视化表达'],
+  resume: '/assets/academic/resume-zhonghao.pdf',
+  contact: {
+    phone: profile.phoneCN,
+    email: profile.email,
+  },
+}
 
 export const toolLoopItems = [
   'R', 'ggplot2', 'dplyr', 'gtsummary', 'broom', 'performance', 'lme4', 'poLCA',

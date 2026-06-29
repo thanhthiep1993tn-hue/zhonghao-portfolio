@@ -12,7 +12,7 @@ import SplitText from './effects/SplitText'
 
 const colors = ['#1D4ED8', '#2563EB', '#0891B2', '#0F766E', '#2563EB']
 
-function Hero() {
+function Hero({ onQuickOpen }) {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
@@ -46,6 +46,9 @@ function Hero() {
           <Reveal delay={0.28} className="hero-actions">
             <MagneticButton className="button button-primary" onClick={() => scrollTo('archive')}>
               查看研究档案 <span>↘</span>
+            </MagneticButton>
+            <MagneticButton className="button button-secondary" onClick={onQuickOpen}>
+              快速了解我 <span>↗</span>
             </MagneticButton>
             <MagneticButton className="button button-secondary" onClick={() => scrollTo('projects')}>
               查看项目 <span>→</span>

@@ -5,9 +5,11 @@ const navItems = [
   ['首页', 'home'],
   ['教育', 'education'],
   ['档案', 'archive'],
+  ['方法', 'methods'],
+  ['R作品', 'r-visualization'],
   ['项目', 'projects'],
+  ['Demo', 'business-demos'],
   ['经历', 'experience'],
-  ['关于我', 'profile'],
   ['联系', 'contact'],
 ]
 
@@ -18,8 +20,7 @@ function Navbar() {
   useEffect(() => {
     const spyItems = [
       ...navItems.map(([, id]) => ({ id, activeId: id })),
-      { id: 'r-visualization', activeId: 'archive' },
-      { id: 'methods', activeId: 'profile' },
+      { id: 'profile', activeId: 'experience' },
     ]
     const onScroll = () => {
       setScrolled(window.scrollY > 16)
